@@ -32,7 +32,8 @@ export default function MovieReviews() {
     <>
       {loading && <Loader />}
       {error && <ErrorMessage>{error}</ErrorMessage>}
-      {reviews.length > 0 ? (
+      {!loading && reviews.length === 0 && <div>No reviews added yet</div>}
+      {reviews.length > 0 && (
         <ul className={css.list}>
           {reviews.map(({ id, author, content }) => (
             <li key={id}>
@@ -41,8 +42,6 @@ export default function MovieReviews() {
             </li>
           ))}
         </ul>
-      ) : (
-        <div>No reviews added yed</div>
       )}
     </>
   );

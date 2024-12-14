@@ -32,7 +32,8 @@ export default function MovieCast() {
     <>
       {loading && <Loader />}
       {error && <ErrorMessage>{error}</ErrorMessage>}
-      {credits.length > 0 ? (
+      {!loading && credits.length === 0 && <div>No casts</div>}
+      {credits.length > 0 && (
         <ul className={css.list}>
           {credits.map(({ id, character, name, profile_path }) => (
             <li key={id}>
@@ -44,8 +45,6 @@ export default function MovieCast() {
             </li>
           ))}
         </ul>
-      ) : (
-        <div>No casts</div>
       )}
     </>
   );
