@@ -4,12 +4,14 @@ import toast, { Toaster } from "react-hot-toast";
 import MovieList from "../../components/MovieList/MovieList";
 import Loader from "../../components/Loader/Loader";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
+import { useSearchParams } from "react-router-dom";
 
 export default function MoviesPage() {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [query, setQuery] = useState("");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const query = searchParams.get("query");
 
   useEffect(() => {
     const getMovies = async () => {
@@ -42,7 +44,7 @@ export default function MoviesPage() {
       return;
     }
 
-    setQuery(query);
+    setSearchParams({ query });
     form.reset();
   };
 
