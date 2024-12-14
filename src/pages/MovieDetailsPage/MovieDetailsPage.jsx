@@ -41,7 +41,7 @@ export default function MovieDetailsPage() {
       {error && <ErrorMessage>{error}</ErrorMessage>}
       {details && (
         <div>
-          <Link to={backLinkHref}>&larr; Go back</Link>
+          <Link to={backLinkHref.current}>&larr; Go back</Link>
           <div className={css.details}>
             <div className={css.image}>
               <img src={imgUrl} alt={details.title} />
