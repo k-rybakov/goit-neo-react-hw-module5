@@ -1,6 +1,6 @@
 import css from "./MovieDetailsPage.module.css";
 import { useLocation, useParams, Link, Outlet } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { getMovieDetails, buildImageUrl } from "../../api";
 import Loader from "../../components/Loader/Loader";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
@@ -11,7 +11,7 @@ export default function MovieDetailsPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [details, setDetails] = useState({});
-  const backLinkHref = location.state ?? "/";
+  const backLinkHref = useRef(location.state ?? "/");
 
   useEffect(() => {
     const movieDetails = async () => {
