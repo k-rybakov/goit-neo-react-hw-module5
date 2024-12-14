@@ -1,0 +1,9 @@
+.link {
+  margin-right: 20px;
+}
+
+.active {
+  font-weight: 500;
+  color: red;
+  text-decoration: inherit;
+}

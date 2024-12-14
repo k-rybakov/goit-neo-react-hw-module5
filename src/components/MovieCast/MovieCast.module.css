@@ -1,0 +1,18 @@
+.list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.list li {
+  list-style: none;
+}
+
+.image {
+  width: 350px;
+}
+
+.image img {
+  width: 100%;
+}
